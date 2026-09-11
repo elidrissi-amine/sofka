@@ -19,7 +19,7 @@ jobs:
           persist-credentials: false
 
       - name: Setup Nix
-        uses: $/.github/actions/setup-nix
+        uses: ./.github/actions/setup-nix # zizmor: ignore[self-repository]
 
       - name: Check flake outputs on all supported systems
         run: nix flake check --no-build --all-systems
