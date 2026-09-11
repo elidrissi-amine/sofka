@@ -5013,6 +5013,13 @@ fn confirm_action_hint(app: &App, allows_force: bool) -> String {
             (Action::Cascade, "cascade"),
         ]);
     }
+    if app.confirm_allows_drain_toggles() {
+        actions.extend([
+            (Action::DrainIgnoreDaemonsets, "ignore daemonsets"),
+            (Action::DrainEmptyDir, "emptyDir data"),
+            (Action::Force, "force"),
+        ]);
+    }
     key_hint(app, "confirm", &actions)
 }
 
